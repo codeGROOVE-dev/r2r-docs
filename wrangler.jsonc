@@ -1,0 +1,7 @@
+{
+  "name": "r2r-docs",
+  "compatibility_date": "2025-11-06",
+  "assets": {
+    "directory": "./site"
+  }
+}
