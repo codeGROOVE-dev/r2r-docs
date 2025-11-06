@@ -1,20 +1,32 @@
-# GitHub Reviewer Bot
+# GitHub App
 
-Automatically assigns reviewers based on code ownership and current workload.
+The GitHub App is the foundation of Ready-to-Review. It provides:
+
+1. **Real-time notifications**: Sends PR events to Dashboard, Slack, and Goose instantly
+2. **Automated reviewer assignment**: Assigns reviewers based on code ownership and workload
+3. **PR state tracking**: Monitors CI status, approvals, and changes
+
+**Required for all other components to function.**
 
 **Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [Dashboard](dashboard.md) | [Slack](slack.md) | [Goose](goose.md)
 
 ## How It Works
 
-When you create a PR:
+When you create or update a PR:
 
-1. Bot runs `git blame` on changed files
-2. Scores candidates by code ownership percentage
-3. Filters out bots and overloaded reviewers (>9 active PRs)
-4. Assigns top 1-3 reviewers
-5. Triggers notifications
+1. **GitHub webhook** fires and sends event to Ready-to-Review
+2. **Real-time broadcast** to Dashboard, Slack, and Goose (15-30 seconds)
+3. **Reviewer assignment** (for new PRs):
+   - Runs `git blame` on changed files
+   - Scores candidates by code ownership percentage
+   - Filters out bots and overloaded reviewers (>9 active PRs)
+   - Assigns top 1-3 reviewers
+4. **State tracking** updates based on CI, approvals, and changes
 
-Runs within 15-30 seconds of PR creation.
+**Typical response time:** 15-30 seconds
+**Maximum wait time:** 60 seconds
+
+If no reviewer is assigned after 60 seconds, see [Troubleshooting](troubleshooting.md#no-reviewers-assigned).
 
 ## Assignment Algorithm
 
@@ -30,17 +42,20 @@ Runs within 15-30 seconds of PR creation.
 
 ## Workload Calculation
 
-Counts only non-stale open PRs. PRs untouched for >180 days are considered stale and don't count.
+Counts only non-stale open PRs. PRs untouched for >90 days are considered stale and don't count.
 
 Example: Bob has 12 assigned PRs. 3 updated recently, 9 stale. Effective workload: 3 PRs. Bob eligible for assignment.
 
-## Configuration
+## Installation & Configuration
 
-Enabled automatically with GitHub App installation. No additional config.
+Install the GitHub App: https://github.com/apps/ready-to-review-beta
 
-Bot only runs on repos where GitHub App is installed.
+Select repositories to monitor. The app will:
+- Enable real-time notifications for all selected repos
+- Automatically assign reviewers on new PRs
+- Track PR state changes
 
-To add repos: [GitHub Settings → Installed GitHub Apps](https://github.com/settings/installations) → Ready-to-Review → Configure → Add repositories
+To add/remove repos later: [GitHub Settings → Installed GitHub Apps](https://github.com/settings/installations) → Ready-to-Review → Configure → Repository access
 
 ## Behavior
 

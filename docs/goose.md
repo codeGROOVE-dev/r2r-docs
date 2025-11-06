@@ -4,11 +4,15 @@ Native desktop notifications for macOS, Linux, Windows, BSD. Honks when you're b
 
 **Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [GitHub Bot](github-bot.md) | [Dashboard](dashboard.md) | [Slack](slack.md)
 
+## Prerequisites
+
+- [GitHub App installed](getting-started.md#step-1-github-app) on your repositories (required for real-time PR notifications)
+- GitHub CLI (`gh`) installed
+- Go 1.23.4+ installed (for building from source)
+
 ## Installation
 
-Requires: GitHub CLI (`gh`), Go 1.23.4+
-
-Homebrew package coming soon. For now, build from source.
+Build from source (Homebrew package coming soon).
 
 ### macOS
 

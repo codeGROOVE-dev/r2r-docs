@@ -1,5 +1,7 @@
 # Security & Privacy
 
+**Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [Plans](plans.md) | [Troubleshooting](troubleshooting.md)
+
 ## Data Access
 
 **GitHub permissions:**

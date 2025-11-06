@@ -2,23 +2,26 @@
 
 Automated PR tracking that eliminates coordination overhead. PRs merge in under an hour instead of 4.5 days.
 
+> **Note:** Ready-to-Review is developed by codeGROOVE. You'll see "codeGROOVE" in configuration files, support channels, and GitHub repositories.
+
 ## How It Works
 
 Every PR has exactly one responsible party at any moment:
 
-- **Author's turn**: Fix CI, address feedback, resolve conflicts
-- **Reviewer's turn**: Review or re-review
-- **Waiting**: CI running or approved
+- **Author's turn** (Red): Fix CI, address feedback, resolve conflicts
+- **Reviewer's turn** (Yellow): Review or re-review needed
+- **Ready to merge** (Green): Approved, waiting for merge
+- **In progress** (Gray): Draft or CI running
 
-State changes trigger notifications. Turn-based clarity replaces ambiguity.
+State changes trigger notifications. Turn-based clarity replaces ambiguity. See color-coded states in the [Dashboard](dashboard.md#status-colors).
 
 Architecture: https://github.com/codeGROOVE-dev/architecture/blob/main/README.md
 
 ## Components
 
-**[GitHub Bot](github-bot.md)** (required): Assigns reviewers based on code ownership and workload. Installed via GitHub App. [Learn more →](github-bot.md)
+**[GitHub App](github-bot.md)** (required): Enables real-time notifications and assigns reviewers based on code ownership. Required for all other components to function. [Learn more →](github-bot.md)
 
-**[Dashboard](dashboard.md)**: View all PRs at `<org>.ready-to-review.dev`. Login with GitHub. [Learn more →](dashboard.md)
+**[Dashboard](dashboard.md)**: View all PRs at `dash.ready-to-review.dev` (personal) or `<org>.ready-to-review.dev` (organizations). Login with GitHub. [Learn more →](dashboard.md)
 
 **[Slack](slack.md)**: Channel updates and DMs. Install from Slack app directory. [Learn more →](slack.md)
 

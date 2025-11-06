@@ -1,5 +1,7 @@
 # Troubleshooting
 
+**Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [Dashboard](dashboard.md) | [Slack](slack.md) | [Goose](goose.md) | [GitHub Bot](github-bot.md)
+
 This guide provides solutions to common issues across all Ready-to-Review components. For component-specific troubleshooting, see the FAQ sections in each component's documentation.
 
 ## Quick Diagnosis
@@ -192,7 +194,7 @@ See [Slack Integration - FAQ & Troubleshooting](slack.md#i-installed-the-slack-a
 **Quick fixes**:
 
 1. Verify Slack app installation (Slack → Apps → Manage)
-2. Check channel configuration (`.codeGROOVE/slack.yaml`)
+2. Check channel configuration (in your `.codeGROOVE` repository's `slack.yaml` file)
 3. Invite bot to channel: `/invite @Ready-to-Review`
 4. Verify workspace URL in configuration
 5. Create test PR and wait 60 seconds
@@ -332,9 +334,9 @@ See [GitHub Reviewer Bot - FAQ & Troubleshooting](github-bot.md#the-bot-assigned
 
 **Expected behavior**:
 
-- **Dashboard**: Updates every 30-60 seconds
-- **Slack**: 15-60 seconds from GitHub event
-- **Goose**: 15-60 seconds from GitHub event
+- **Dashboard**: Updates typically within 15-30 seconds (max: 60 seconds)
+- **Slack**: Typically 15-30 seconds from GitHub event (max: 60 seconds)
+- **Goose**: Typically 15-30 seconds from GitHub event (max: 60 seconds)
 - **Slack DM delay**: 65 minutes if user is in channel (configurable)
 
 **If notifications are delayed beyond this**:

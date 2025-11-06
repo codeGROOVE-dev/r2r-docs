@@ -1,16 +1,36 @@
 # Dashboard
 
-Web interface at `<org>.ready-to-review.dev` showing all PRs across your organization.
+Web interface showing all PRs across your repositories.
 
 **Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [GitHub Bot](github-bot.md) | [Slack](slack.md) | [Goose](goose.md)
 
+## Prerequisites
+
+- [GitHub App installed](getting-started.md#step-1-github-app) on your repositories (required for real-time PR updates)
+
 ## Access
 
-Navigate to `<your-org>.ready-to-review.dev` (replace `<your-org>` with your GitHub org name).
+**For personal accounts / individual users:**
+Navigate to [dash.ready-to-review.dev](https://dash.ready-to-review.dev)
+
+**For GitHub organizations:**
+Navigate to `<your-org>.ready-to-review.dev` (replace `<your-org>` with your GitHub organization name)
+
+Example: If your org is `acme-corp`, visit `acme-corp.ready-to-review.dev`
 
 Click **Login with GitHub**, authorize when prompted.
 
 Sessions expire after 24 hours.
+
+## Security & Privacy
+
+OAuth scopes requested:
+
+- `user:read` - Your username and profile
+- `repo:status` - PR status and CI checks
+- `read:org` - Organization membership
+
+Data cached up to 28 days. No code access. Details: [Security](security.md)
 
 ## Interface
 
@@ -36,16 +56,6 @@ Search box: Filter by PR title, repo name, author, or reviewer
 Repository dropdown: Show PRs from specific repos only
 
 Sort by: Updated, Created, Title, Repository
-
-## Security
-
-OAuth scopes requested:
-
-- `user:read` - Your username and profile
-- `repo:status` - PR status and CI checks
-- `read:org` - Organization membership
-
-Data cached up to 28 days. No code access. Details: [Security](security.md)
 
 ## Troubleshooting
 

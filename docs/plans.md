@@ -1,5 +1,7 @@
 # Plans & Features
 
+**Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [Security](security.md) | [Troubleshooting](troubleshooting.md)
+
 Ready-to-Review offers four plans designed for different team sizes and needs. All plans include the core PR tracking features with varying levels of support and repository access.
 
 ## Plan Comparison
@@ -35,7 +37,7 @@ Free forever for open-source maintainers and contributors.
 - Web dashboard at `<org>.ready-to-review.dev`
 - Slack integration with channel and DM notifications
 - Goose desktop app for native notifications (macOS, Linux, Windows, BSD)
-- Basic analytics and contributor leaderboards
+- Basic analytics and contributor leaderboards (visible in organization dashboard)
 - Multi-org support
 
 **Limitations**:
@@ -93,7 +95,7 @@ Built for teams that move fast and need organization-wide coordination.
 **Adds**:
 
 - **Org-specific workspace**: Dedicated dashboard and configuration per organization
-- **Team leaderboards**: Track team velocity, top reviewers, and bottlenecks
+- **Team leaderboards**: Organization-wide dashboards tracking team velocity, top reviewers, and bottlenecks
 - **Advanced insights**: Median PR time, review patterns, workload distribution
 - **Priority support**: Faster response times, direct access to engineering team
 
@@ -188,9 +190,11 @@ Org-specific workspaces provide:
 
 ### Team Leaderboards & Insights
 
+Available in the organization dashboard at `<org>.ready-to-review.dev`.
+
 **Basic (Grass Roots, Super-fan)**:
 
-- Contributor leaderboard: Who merged the most PRs
+- Contributor leaderboard: Who merged the most PRs across the organization
 - Review counts: Number of PRs reviewed per person
 
 **Advanced (Main Stage, Funk Master)**:

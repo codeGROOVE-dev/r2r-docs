@@ -43,10 +43,10 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Components:
+    - GitHub App: github-bot.md
     - Dashboard: dashboard.md
     - Slack: slack.md
     - Goose: goose.md
-    - GitHub Bot: github-bot.md
   - Plans: plans.md
   - Troubleshooting: troubleshooting.md
   - Security: security.md
