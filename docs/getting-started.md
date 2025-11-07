@@ -143,4 +143,4 @@ Desktop notifications. Build from source (Homebrew package coming soon).
 
 ## Problems?
 
-[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
+[Get Support →](https://codegroove.dev/support){ .md-button }

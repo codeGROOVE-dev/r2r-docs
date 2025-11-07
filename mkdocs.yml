@@ -1,43 +1,34 @@
-site_name: Ready-to-Review Documentation
+site_name: Ready-to-Review
 site_url: https://docs.ready-to-review.dev
 site_description: Documentation for Ready-to-Review - Eliminate PR coordination overhead
 site_author: codeGROOVE
 
-repo_url: https://github.com/codeGROOVE-dev/support
-repo_name: Get Support
-
 theme:
   name: material
   palette:
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: cyan
-      accent: yellow
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    # Dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: cyan
-      accent: yellow
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+    scheme: default
+    primary: cyan
+    accent: cyan
   features:
     - navigation.instant
     - navigation.tracking
-    - navigation.tabs
     - navigation.sections
     - navigation.expand
     - navigation.top
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
     - content.tabs.link
+    - content.code.annotate
   icon:
     repo: fontawesome/brands/github
+  font:
+    text: Inter
+    code: JetBrains Mono
 
 nav:
   - Home: index.md
@@ -50,6 +41,7 @@ nav:
   - Plans: plans.md
   - Troubleshooting: troubleshooting.md
   - Security: security.md
+  - Support: https://codegroove.dev/support
 
 markdown_extensions:
   - admonition
@@ -70,11 +62,10 @@ markdown_extensions:
 plugins:
   - search
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/codeGROOVE-dev
-    - icon: fontawesome/solid/envelope
-      link: https://github.com/codeGROOVE-dev/support
+extra_css:
+  - stylesheets/custom.css
 
-copyright: Copyright &copy; 2024 codeGROOVE
+extra:
+  generator: false
+
+copyright: Copyright &copy; 2025 codeGROOVE. All rights reserved.

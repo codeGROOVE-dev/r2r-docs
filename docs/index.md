@@ -2,11 +2,11 @@
 
 Automated PR tracking that eliminates coordination overhead. PRs merge in under an hour instead of 4.5 days.
 
-## Get Started
+## Quick Setup
 
-[Getting Started →](getting-started.md){ .md-button .md-button--primary }
+[Get Started →](getting-started.md){ .md-button .md-button--primary }
 
-5 minutes to set up. Install the GitHub App, login to your dashboard, then optionally add Slack and desktop notifications.
+5-minute installation. Add the GitHub App, access your dashboard, then optionally enable Slack and desktop notifications.
 
 ## What You Get
 
@@ -23,4 +23,4 @@ Automated PR tracking that eliminates coordination overhead. PRs merge in under 
 
 ## Need Help?
 
-[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button } or [Schedule a Call](https://calendar.app.google/TbQmeX8iWnvx6Ci89){ .md-button }
+[Get Support →](https://codegroove.dev/support){ .md-button } or [Schedule a Call](https://calendar.app.google/TbQmeX8iWnvx6Ci89){ .md-button }
