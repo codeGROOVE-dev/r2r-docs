@@ -37,7 +37,9 @@ No access to: Private DMs between users, files, billing, passwords.
 
 **Encryption:** AES-256 at rest, TLS 1.2+ in transit.
 
-**Deletion:** Uninstall GitHub App → data deleted within 48 hours. Request immediate deletion: https://github.com/codeGROOVE-dev/support
+**Deletion:** Uninstall GitHub App → data deleted within 48 hours. Request immediate deletion:
+
+[Request Deletion →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
 
 ## Privacy
 
@@ -51,18 +53,6 @@ No access to: Private DMs between users, files, billing, passwords.
 **Emails:** Slack integration hashes emails for GitHub ↔ Slack matching. Not stored plaintext.
 
 **Cookies:** Session (24hr), CSRF token. No tracking cookies.
-
-## Compliance
-
-**GDPR:** Right to access, deletion, portability. Data controller: codeGROOVE, LLC. Data may be processed in US (GCP).
-
-**CCPA:** Right to know, delete, opt-out of sale (we don't sell data).
-
-**SOC 2:** Working towards Type II audit. Expected Q2 2025.
-
-**HIPAA:** Not currently compliant. Don't use for PHI. Funk Master plan can discuss BAA.
-
-DPA/BAA available for Funk Master plan: https://github.com/codeGROOVE-dev/support
 
 ## Infrastructure
 
@@ -88,8 +78,10 @@ DPA/BAA available for Funk Master plan: https://github.com/codeGROOVE-dev/suppor
 
 ## Contact
 
-Questions: https://github.com/codeGROOVE-dev/support
+**Questions:**
 
-Security issues: https://github.com/codeGROOVE-dev/support/security (private advisory)
+[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
+
+**Security issues:** https://github.com/codeGROOVE-dev/support/security (private advisory)
 
 Last updated: November 2024

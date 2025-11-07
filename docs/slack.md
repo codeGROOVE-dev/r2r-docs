@@ -6,7 +6,7 @@ Posts PR updates to channels and sends DMs when action needed.
 
 ## Prerequisites
 
-- [GitHub App installed](getting-started.md#step-1-github-app) on your repositories (required for real-time PR notifications)
+- [GitHub App installed](getting-started.md#step-1-install-github-app-required) on your repositories (required for real-time PR notifications)
 - Slack workspace admin access (for installation)
 - GitHub and Slack accounts using the same email (for DM matching)
 
@@ -118,4 +118,4 @@ User emails hashed for matching, never stored plaintext. Details: [Security](sec
 
 **Wrong channel**: Check `slack.yaml` in your `.codeGROOVE` repository for typos. Review precedence rules above.
 
-More: https://github.com/codeGROOVE-dev/support
+[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }

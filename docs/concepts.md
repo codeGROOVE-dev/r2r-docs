@@ -4,48 +4,89 @@ This page explains the fundamental concepts behind Ready-to-Review. Understandin
 
 ## Turn-Based PR Tracking
 
-Ready-to-Review treats pull request reviews like a turn-based game. At any moment, one person (or automated system) is responsible for the next action.
+Ready-to-Review tracks whose turn it is to act on a pull request. The system identifies specific actions that need to happen and who should take them, enabling multiple people to move a PR forward simultaneously.
 
 ### How It Works
 
-Every pull request is in one of several states:
+The system analyzes each PR to determine:
 
-| State | Whose Turn | What Needs to Happen | Who Gets Notified |
-|-------|------------|----------------------|-------------------|
-| **Author: Fix CI** | Pull request author | Tests are failing and need to be fixed | Author |
-| **Author: Address Feedback** | Pull request author | Reviewers requested changes | Author |
-| **Author: Resolve Conflicts** | Pull request author | Merge conflicts need resolution | Author |
-| **Reviewer: Initial Review** | Assigned reviewers | Code needs first review | All assigned reviewers |
-| **Reviewer: Re-review** | Reviewers who requested changes | Author addressed feedback, needs re-review | Reviewers who requested changes |
-| **Waiting: CI Running** | Continuous Integration system | Automated tests are in progress | No one (waiting) |
-| **Waiting: Approved** | Repository maintainer or automation | PR is approved, waiting for merge | No one (ready to merge) |
+1. **What actions are needed** - Specific tasks to move the PR forward
+2. **Who can take each action** - Which people are responsible
+3. **Which actions are critical** - What's blocking vs what's optional
+4. **Multiple paths forward** - When several people can help
 
-!!! info "State Determination"
-    Ready-to-Review determines state by analyzing:
+### Action Types
+
+Ready-to-Review identifies these specific actions:
+
+**Author Actions:**
+
+- **Publish draft** - Mark PR as ready for review
+- **Fix tests** - Fix failing CI checks or tests
+- **Resolve conflicts** - Fix merge conflicts
+- **Address feedback** - Respond to review comments and requested changes
+- **Request reviewers** - Assign reviewers to the PR
+
+**Reviewer Actions:**
+
+- **Review** - Provide initial code review
+- **Re-review** - Review changes after author updates
+- **Approve** - Formally approve the PR
+
+**Merge Actions:**
+
+- **Merge** - Merge the approved PR
+
+### Critical vs Non-Critical Actions
+
+Not all actions are equally important:
+
+- **Critical actions** block the PR from progressing (e.g., fixing failing tests, addressing requested changes)
+- **Non-critical actions** are helpful but don't block (e.g., reviewing when the author still has work to do)
+
+The dashboard and notifications prioritize critical actions to help you focus on what's blocking progress.
+
+### Multiple Paths Forward
+
+Often, multiple people can move a PR forward:
+
+**Parallel Reviewers**: When multiple reviewers are assigned, **any one** can provide feedback to unblock the author. All reviewers see this as a critical action.
+
+**Merge Escalation**: When a PR is approved and ready to merge, responsibility escalates over time:
+- Initially: Author and assignees
+- After 1 hour: Approvers
+- After 7 hours: All participants with write access
+
+**Unresolved Discussions**: Both author and reviewers may need to respond to move the conversation forward.
+
+!!! info "What Ready-to-Review Analyzes"
+    The system determines actions by analyzing:
 
     - CI check status (passing, failing, pending)
-    - Review status (approved, changes requested, pending)
+    - Review status (approved, changes requested, comments)
     - Merge conflicts
     - Draft status
+    - Unresolved comment threads
     - Time since last activity
+    - Repository permissions
 
 ### Example Flow
 
-Here's how a typical pull request moves through states:
+Here's how a typical pull request progresses:
 
 ```mermaid
 graph LR
     A[Author Creates PR] --> B[CI Running]
     B --> C{Tests Pass?}
-    C -->|Yes| D[Reviewer: Initial Review]
-    C -->|No| E[Author: Fix CI]
+    C -->|Yes| D[Reviewers: Review]
+    C -->|No| E[Author: Fix Tests]
     E --> B
     D --> F{Review Decision}
-    F -->|Approved| G[Waiting: Approved]
+    F -->|Approved| G[Author/Team: Merge]
     F -->|Changes Requested| H[Author: Address Feedback]
     H --> I[CI Running]
     I --> J{Tests Pass?}
-    J -->|Yes| K[Reviewer: Re-review]
+    J -->|Yes| K[Reviewers: Re-review]
     J -->|No| E
     K --> L{Re-review Decision}
     L -->|Approved| G
@@ -54,16 +95,16 @@ graph LR
 ```
 
 1. **Author creates PR**: New pull request is opened
-2. **CI Running**: GitHub Actions, CircleCI, or other CI runs tests (state: Waiting)
-3. **Tests fail**: Author is notified to fix tests (state: Author - Fix CI)
-4. **Tests pass**: Reviewers are notified (state: Reviewer - Initial Review)
-5. **Changes requested**: Author is notified to address feedback (state: Author - Address Feedback)
-6. **Author updates**: CI runs again
-7. **Tests pass**: Reviewers who requested changes are notified (state: Reviewer - Re-review)
-8. **Approved**: PR is ready to merge (state: Waiting - Approved)
+2. **CI Running**: Tests run (no action needed yet)
+3. **Tests fail**: Author gets critical action "Fix tests"
+4. **Tests pass**: All assigned reviewers get critical action "Review" (any one can provide feedback)
+5. **Changes requested**: Author gets critical action "Address feedback"
+6. **Author updates**: CI runs again, reviewers wait
+7. **Tests pass**: Reviewers who requested changes get critical action "Re-review"
+8. **Approved**: Author/assignees get critical action "Merge" (escalates to more people over time)
 9. **Merged**: PR is closed
 
-At each step, **exactly one person or group** knows they are responsible for the next action.
+Throughout this flow, **multiple people may have actions simultaneously**, but the system clearly identifies which actions are critical for each person.
 
 ## Smart Notification Logic
 
@@ -100,8 +141,8 @@ If multiple notification channels are enabled, Ready-to-Review uses this logic:
 
 1. **Slack channel notification** (if user is in the channel):
     - Post to channel
-    - **Wait 65 minutes** before sending DM (configurable)
-    - If user doesn't act within 65 minutes, send Slack DM
+    - **Wait 65 minutes** before sending reminder DM (configurable)
+    - If user doesn't act within 65 minutes, send reminder DM
     - Dashboard always shows PR status
 
 2. **Slack DM** (if user is not in the channel):
@@ -116,8 +157,8 @@ If multiple notification channels are enabled, Ready-to-Review uses this logic:
     - If Slack and Goose are not configured, PRs appear in dashboard only
     - No active notifications
 
-!!! tip "Reducing Notification Noise"
-    The 65-minute Slack DM delay prevents spam when users are actively monitoring channels. Users who see the channel notification can act immediately without getting redundant DMs.
+!!! tip "Reminder DMs"
+    The 65-minute Slack DM is a reminder for people who missed the initial channel notification or were busy at that time. This ensures reviewers don't miss important PRs while avoiding immediate notification spam for those actively monitoring channels.
 
 ## Reviewer Assignment Algorithm
 
@@ -182,53 +223,6 @@ To prevent reviewer burnout, the algorithm:
     Effective workload: **3 PRs** (stale PRs are ignored)
 
     Alice is eligible for new assignments.
-
-## Multi-Organization Support
-
-Ready-to-Review can track pull requests across multiple GitHub organizations simultaneously.
-
-### How It Works
-
-Each GitHub organization gets:
-
-- **Independent dashboard**: `<org-name>.ready-to-review.dev`
-- **Separate configuration**: Each org has its own `.codeGROOVE/slack.yaml` settings
-- **Isolated state tracking**: PRs from different orgs don't interfere
-
-### Cross-Organization Features
-
-If you belong to multiple organizations:
-
-- **Goose Desktop App** shows PRs from all orgs you have access to
-- **Organization filtering** lets you focus on specific orgs in Goose
-- **Dashboard** requires visiting each org's URL separately
-
-!!! tip "Work vs Personal Projects"
-    Use Goose's organization filtering to separate work and personal open-source projects. See [Goose - Configuration](goose.md#organization-filtering).
-
-## Multi-Workspace Slack Support
-
-The Slack integration supports multiple Slack workspaces, even for the same GitHub organization.
-
-### Use Cases
-
-- **Multiple teams**: Engineering in one workspace, DevOps in another
-- **Company + Clients**: Your company's Slack workspace plus client workspaces
-- **Distributed teams**: Regional teams each with their own Slack workspace
-
-### Configuration
-
-Each Slack workspace has independent configuration:
-
-1. Install the Slack app in each workspace separately
-2. Configure `.codeGROOVE/slack.yaml` to specify which workspace(s) receive notifications:
-
-```yaml
-global:
-    slack: primary-workspace.slack.com
-```
-
-See [Slack Integration - Multi-Workspace Setup](slack.md#multi-workspace-setup) for complete configuration.
 
 ## Timezone Awareness
 

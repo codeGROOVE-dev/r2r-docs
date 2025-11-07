@@ -65,7 +65,7 @@ If any component fails, proceed to that component's troubleshooting section belo
     - Refresh the Dashboard
 
 3. **Check service status**:
-    - Open an issue in the [support repository](https://github.com/codeGROOVE-dev/support) to ask about service status
+    - [Check Service Status →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
 
 ### PRs are not being tracked
 
@@ -154,7 +154,7 @@ If any component fails, proceed to that component's troubleshooting section belo
 
 ### Can't log in to Dashboard
 
-See [Dashboard - FAQ & Troubleshooting](dashboard.md#i-cant-log-in-to-the-dashboard) for detailed solutions.
+See [Dashboard - Troubleshooting](dashboard.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -165,7 +165,7 @@ See [Dashboard - FAQ & Troubleshooting](dashboard.md#i-cant-log-in-to-the-dashbo
 
 ### Dashboard shows no PRs
 
-See [Dashboard - FAQ & Troubleshooting](dashboard.md#i-dont-see-all-my-prs) for detailed solutions.
+See [Dashboard - Troubleshooting](dashboard.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -176,7 +176,7 @@ See [Dashboard - FAQ & Troubleshooting](dashboard.md#i-dont-see-all-my-prs) for 
 
 ### Dashboard is slow
 
-See [Dashboard - FAQ & Troubleshooting](dashboard.md#dashboard-is-slow-or-unresponsive) for detailed solutions.
+See [Dashboard - Troubleshooting](dashboard.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -189,7 +189,7 @@ See [Dashboard - FAQ & Troubleshooting](dashboard.md#dashboard-is-slow-or-unresp
 
 ### Slack app not posting to channels
 
-See [Slack Integration - FAQ & Troubleshooting](slack.md#i-installed-the-slack-app-but-dont-see-pr-notifications) for detailed solutions.
+See [Slack Integration - Troubleshooting](slack.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -201,7 +201,7 @@ See [Slack Integration - FAQ & Troubleshooting](slack.md#i-installed-the-slack-a
 
 ### Not receiving Slack DMs
 
-See [Slack Integration - FAQ & Troubleshooting](slack.md#direct-messages-arent-being-sent) for detailed solutions.
+See [Slack Integration - Troubleshooting](slack.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -212,7 +212,7 @@ See [Slack Integration - FAQ & Troubleshooting](slack.md#direct-messages-arent-b
 
 ### Too many Slack notifications
 
-See [Slack Integration - FAQ & Troubleshooting](slack.md#im-getting-too-many-notifications) for detailed solutions.
+See [Slack Integration - Troubleshooting](slack.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -225,7 +225,7 @@ See [Slack Integration - FAQ & Troubleshooting](slack.md#im-getting-too-many-not
 
 ### Goose icon not appearing
 
-See [Goose - FAQ & Troubleshooting](goose.md#goose-icon-doesnt-appear-in-menu-bar--system-tray) for detailed solutions.
+See [Goose - Troubleshooting](goose.md#troubleshooting) for detailed solutions.
 
 **Quick fixes by platform**:
 
@@ -247,7 +247,7 @@ See [Goose - FAQ & Troubleshooting](goose.md#goose-icon-doesnt-appear-in-menu-ba
 
 ### No Goose notifications
 
-See [Goose - FAQ & Troubleshooting](goose.md#no-notifications-appearing) for detailed solutions.
+See [Goose - Troubleshooting](goose.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -258,7 +258,7 @@ See [Goose - FAQ & Troubleshooting](goose.md#no-notifications-appearing) for det
 
 ### Goose authentication failed
 
-See [Goose - FAQ & Troubleshooting](goose.md#authentication-failed-error) for detailed solutions.
+See [Goose - Troubleshooting](goose.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -271,7 +271,7 @@ See [Goose - FAQ & Troubleshooting](goose.md#authentication-failed-error) for de
 
 ### Bot didn't assign reviewers
 
-See [GitHub Reviewer Bot - FAQ & Troubleshooting](github-bot.md#the-bot-didnt-assign-any-reviewers) for detailed solutions.
+See [GitHub Reviewer Bot - Troubleshooting](github-bot.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -282,7 +282,7 @@ See [GitHub Reviewer Bot - FAQ & Troubleshooting](github-bot.md#the-bot-didnt-as
 
 ### Bot assigned wrong reviewer
 
-See [GitHub Reviewer Bot - FAQ & Troubleshooting](github-bot.md#the-bot-assigned-the-wrong-reviewer) for detailed solutions.
+See [GitHub Reviewer Bot - Troubleshooting](github-bot.md#troubleshooting) for detailed solutions.
 
 **Quick fixes**:
 
@@ -326,7 +326,7 @@ See [GitHub Reviewer Bot - FAQ & Troubleshooting](github-bot.md#the-bot-assigned
 2. **If duplicate Slack messages**:
     - Check `.codeGROOVE/slack.yaml` for overlapping channel configurations
     - Look for wildcard `"*"` in multiple channels
-    - See [Slack Integration - Wildcards and Precedence](slack.md#wildcards-and-precedence)
+    - See [Slack Integration - Custom Mapping](slack.md#custom-mapping)
 
 ### Notifications are delayed
 
@@ -348,7 +348,7 @@ See [GitHub Reviewer Bot - FAQ & Troubleshooting](github-bot.md#the-bot-assigned
 
 2. **Check service status**:
     - Rare outages may delay notifications
-    - Open an issue in the [support repository](https://github.com/codeGROOVE-dev/support)
+    - [Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
 
 3. **Slack workspace issues**:
     - Check [Slack Status](https://status.slack.com/)
@@ -439,7 +439,7 @@ See [GitHub Reviewer Bot - FAQ & Troubleshooting](github-bot.md#the-bot-assigned
 
 3. **Check for memory leaks**:
     - Restart Goose daily (or use auto-start on login to restart on reboot)
-    - Report persistent issues to [support](https://github.com/codeGROOVE-dev/support)
+    - [Report Issue →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
 
 ### Dashboard slow with many PRs
 
@@ -463,23 +463,17 @@ See [GitHub Reviewer Bot - FAQ & Troubleshooting](github-bot.md#the-bot-assigned
 If your issue isn't covered here:
 
 1. **Check component-specific documentation**:
-    - [Dashboard FAQ](dashboard.md#faq--troubleshooting)
-    - [Slack Integration FAQ](slack.md#faq--troubleshooting)
-    - [Goose FAQ](goose.md#faq--troubleshooting)
-    - [GitHub Bot FAQ](github-bot.md#faq--troubleshooting)
+    - [Dashboard Troubleshooting](dashboard.md#troubleshooting)
+    - [Slack Integration Troubleshooting](slack.md#troubleshooting)
+    - [Goose Troubleshooting](goose.md#troubleshooting)
+    - [GitHub Bot Troubleshooting](github-bot.md#troubleshooting)
 
-2. **Review the Glossary**:
-    - [Glossary](glossary.md) for term definitions
+2. **Open a support issue**:
 
-3. **Open a support issue**:
-    - Go to the [support repository](https://github.com/codeGROOVE-dev/support)
-    - Click **New Issue**
-    - Use the appropriate template:
-        - Bug report
-        - Feature request
-        - Configuration question
-    - Include:
-        - Component affected (Dashboard, Slack, Goose, GitHub Bot)
+    [Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
+
+    Include:
+    - Component affected (Dashboard, Slack, Goose, GitHub Bot)
         - Steps to reproduce
         - Expected behavior
         - Actual behavior
@@ -530,14 +524,14 @@ When opening a support issue, please provide:
 
 To check if Ready-to-Review services are operational:
 
-1. Open an issue in the [support repository](https://github.com/codeGROOVE-dev/support) asking about status
+1. [Check Service Status →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
 2. Check recent issues for outage reports
 
 ### Planned Maintenance
 
 Planned maintenance windows will be announced:
 
-- Via GitHub issue in the [support repository](https://github.com/codeGROOVE-dev/support)
+- [Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
 - At least 48 hours in advance
 - Typically during low-traffic hours (weekends, late night US time)
 

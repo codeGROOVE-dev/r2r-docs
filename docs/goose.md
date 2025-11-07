@@ -6,7 +6,7 @@ Native desktop notifications for macOS, Linux, Windows, BSD. Honks when you're b
 
 ## Prerequisites
 
-- [GitHub App installed](getting-started.md#step-1-github-app) on your repositories (required for real-time PR notifications)
+- [GitHub App installed](getting-started.md#step-1-install-github-app-required) on your repositories (required for real-time PR notifications)
 - GitHub CLI (`gh`) installed
 - Go 1.23.4+ installed (for building from source)
 
@@ -110,4 +110,4 @@ No telemetry. No data transmission except GitHub API. Details: [Security](securi
 
 **Crashes**: Run in foreground to see errors: `./goose`. Update: `git pull && make clean && make run`.
 
-More: https://github.com/codeGROOVE-dev/support
+[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }

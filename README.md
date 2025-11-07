@@ -5,8 +5,13 @@ Documentation site built with [MkDocs Material](https://squidfunk.github.io/mkdo
 ## Prerequisites
 
 ```bash
-make install  # Installs mkdocs-material via pip
+make install  # Creates Python virtual environment and installs mkdocs-material
 ```
+
+The install command automatically:
+- Creates a `.venv` directory with an isolated Python environment
+- Installs all required dependencies
+- Works on macOS, Linux, and Windows (with minor adjustments)
 
 ## Quick Start
 

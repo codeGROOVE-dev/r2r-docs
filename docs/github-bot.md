@@ -26,7 +26,7 @@ When you create or update a PR:
 **Typical response time:** 15-30 seconds
 **Maximum wait time:** 60 seconds
 
-If no reviewer is assigned after 60 seconds, see [Troubleshooting](troubleshooting.md#no-reviewers-assigned).
+If no reviewer is assigned after 60 seconds, see [Troubleshooting](troubleshooting.md#bot-didnt-assign-reviewers).
 
 ## Assignment Algorithm
 
@@ -86,8 +86,10 @@ Details: [Security](security.md)
 
 **Same person always assigned**: That person likely authored most code. Distribute code ownership by having others contribute to same areas. Check workload distribution in dashboard.
 
-**Want to exclude someone**: No built-in exclusion list yet. Manually remove if assigned. Feature request: https://github.com/codeGROOVE-dev/support
+**Want to exclude someone**: No built-in exclusion list yet. Manually remove if assigned.
+
+[Request Feature →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }
 
 **CODEOWNERS support**: Not yet implemented. Bot uses actual Git history instead of declared ownership. Planned feature.
 
-More: https://github.com/codeGROOVE-dev/support
+[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }

@@ -1,126 +1,146 @@
 # Getting Started
 
-**Part of Ready-to-Review** - [Home](index.md) | [Dashboard](dashboard.md) | [Slack](slack.md) | [Goose](goose.md) | [GitHub Bot](github-bot.md) | [Plans](plans.md)
-
-Three steps: GitHub App, then optionally Slack and Goose.
+Get up and running in 5 minutes. Install the GitHub App, login to your dashboard, then optionally add Slack and desktop notifications.
 
 ## Prerequisites
 
-- GitHub org admin access
-- (Optional) Slack workspace admin
-- (Optional) For Goose: `gh`, Go 1.23.4+
+- GitHub organization admin access (or personal account)
+- (Optional) Slack workspace admin access
 
-## Step 1: GitHub App (Required)
+## Step 1: Install GitHub App (Required)
 
-The GitHub App is required for all Ready-to-Review features. It enables:
-- Real-time PR notifications to Dashboard, Slack, and Goose
-- Automated reviewer assignment
-- PR state tracking
+The GitHub App is required for real-time notifications and automated review assignments.
 
-Install: https://github.com/apps/ready-to-review-beta
+[Add to GitHub →](https://github.com/apps/ready-to-review-beta){ .md-button .md-button--primary }
 
-Click **Install**, choose **All repositories** or select specific repos, click **Install**.
+Choose **All repositories** or select specific repos, then click **Install**.
 
-Verify: Visit the dashboard (see URLs below), click **Login with GitHub**. You should see existing PRs appear (typical: 15-30 seconds, max: 60 seconds).
+## Step 2: Login to Your Dashboard
 
-**Dashboard URLs:**
-- Personal/individual accounts: [dash.ready-to-review.dev](https://dash.ready-to-review.dev)
-- GitHub organizations: `<your-org>.ready-to-review.dev` (replace with your org name)
+View all your PRs in one place. Enter your GitHub organization name below, or leave blank for personal account:
 
-Create a test PR to verify reviewer assignment.
+<div style="background: #f5f5f5; padding: 24px; border-radius: 8px; margin: 20px 0;">
+  <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+    <input
+      type="text"
+      id="org-input"
+      placeholder="your-org-name"
+      style="flex: 1; min-width: 200px; padding: 12px 16px; border: 2px solid #0e7490; border-radius: 4px; font-size: 16px; font-family: inherit;"
+      onkeypress="if(event.key === 'Enter') openDashboard()"
+    />
+    <button
+      onclick="openDashboard()"
+      class="md-button md-button--primary"
+      style="white-space: nowrap; padding: 12px 24px; font-size: 16px; cursor: pointer; border: none;"
+    >
+      Open Dashboard →
+    </button>
+  </div>
+  <p style="margin: 12px 0 0 0; font-size: 14px; color: #666;">
+    <strong>Examples:</strong> <code>acme-corp</code> → acme-corp.ready-to-review.dev | Leave blank → dash.ready-to-review.dev
+  </p>
+</div>
 
-## Step 2: Slack (Optional)
+<script>
+function openDashboard() {
+  const orgInput = document.getElementById('org-input');
+  const org = orgInput.value.trim();
 
-Install: https://slack.com/oauth/v2/authorize?client_id=9426269265270.9443955134789&scope=channels:history,channels:read,chat:write,chat:write.public,commands,im:write,reactions:write,team:read,users:read,users:read.email,groups:read,groups:history&user_scope=
+  if (org === '') {
+    window.open('https://dash.ready-to-review.dev', '_blank');
+  } else {
+    // Remove any special characters and convert to lowercase
+    const cleanOrg = org.toLowerCase().replace(/[^a-z0-9-]/g, '');
+    window.open(`https://${cleanOrg}.ready-to-review.dev`, '_blank');
+  }
+}
+</script>
 
-Click **Add to Slack**, select workspace, click **Allow**.
+Click **Login with GitHub** and authorize. Your PRs will appear within 60 seconds.
 
-### Channel Mapping
+## Step 3: Slack Integration (Optional)
 
-By default, repos map to same-named channels (`api-server` → `#api-server`).
+[Add to Slack →](https://slack.com/oauth/v2/authorize?client_id=9426269265270.9443955134789&scope=channels:history,channels:read,chat:write,chat:write.public,commands,im:write,reactions:write,team:read,users:read,users:read.email,groups:read,groups:history&user_scope=){ .md-button .md-button--primary }
 
-For custom mapping:
+After clicking the button above, select your workspace and click **Allow**.
 
-1. Create a repository named `.codeGROOVE` in your GitHub organization (note the leading dot)
-2. Add a file named `slack.yaml` to that repository with the following content:
+By default, repositories automatically map to same-named Slack channels (`api-server` repo → `#api-server` channel). Need custom channel mapping or notification settings? See [Slack Integration - Configuration](slack.md#configuration) for advanced options including wildcards, notification timing, and multi-channel routing.
 
-```yaml
-global:
-    slack: yourworkspace.slack.com
+**Verify installation:**
+- In any Slack channel, type `/r2r report` to test the integration
+- Create a test PR and check for message in the corresponding channel (typical: 15-30 seconds, max: 60 seconds)
 
-channels:
-    engineering:
-        repos:
-            - api-server
-            - mobile-app
-
-    # Catch all others
-    general:
-        repos:
-            - "*"
-```
-
-3. Commit and push to the `.codeGROOVE` repository
-
-Verify: Create test PR in any repo, check for message in configured channel (typical: 15-30 seconds, max: 60 seconds).
-
-### Notification Settings
-
-```yaml
-global:
-    slack: yourworkspace.slack.com
-    reminder_dm_delay: 65  # Minutes before DM if in channel (default: 65)
-    daily_reminders: true  # 8-9am local time (default: true)
-```
-
-Full config: [Slack Integration](slack.md#configuration)
-
-## Step 3: Goose (Optional)
+## Step 4: Desktop Notifications / Goose (Optional)
 
 Desktop notifications. Build from source (Homebrew package coming soon).
 
-### macOS / Linux / BSD
+=== "macOS"
 
-```bash
-# Install dependencies
-brew install gh go  # macOS
-# or
-sudo apt install golang-go gh  # Debian/Ubuntu
+    ```bash
+    # Install dependencies
+    brew install gh go
 
-# Authenticate
-gh auth status || gh auth login
+    # Test GitHub authentication
+    gh auth status || gh auth login
 
-# Build and run
-git clone https://github.com/ready-to-review/goose.git
-cd goose && make run
-```
+    # Build and run
+    git clone https://github.com/ready-to-review/goose.git
+    cd goose && make run
+    ```
 
-macOS: Click menu bar icon → **Start at Login** for auto-start.
+    Click menu bar icon → **Start at Login** for auto-start.
 
-### Windows
+=== "Linux"
 
-Install: [Go](https://go.dev/dl/), [GitHub CLI](https://cli.github.com/)
+    ```bash
+    # Debian/Ubuntu
+    sudo apt install golang-go gh
 
-```powershell
-gh auth login
-git clone https://github.com/ready-to-review/goose.git
-cd goose
-go build -o goose.exe ./cmd/goose
-.\goose.exe
-```
+    # Fedora
+    sudo dnf install golang gh
 
-### Fine-Grained Token (Optional)
+    # Arch Linux
+    sudo pacman -S go github-cli
 
-For repo-specific access, use a [fine-grained token](https://github.com/settings/personal-access-tokens/new):
+    # Test GitHub authentication
+    gh auth login
 
-Permissions: Pull requests (read), Metadata (read)
+    # Build and run
+    git clone https://github.com/ready-to-review/goose.git
+    cd goose && make run
+    ```
 
-```bash
-env GITHUB_TOKEN=your_token_here goose
-```
+=== "Windows"
 
-Verify: Menu bar/system tray icon appears. Create test PR, expect notification (typical: 15-30 seconds, max: 60 seconds).
+    Install: [Go](https://go.dev/dl/), [GitHub CLI](https://cli.github.com/)
+
+    ```powershell
+    # Test GitHub authentication
+    gh auth login
+
+    # Build and run
+    git clone https://github.com/ready-to-review/goose.git
+    cd goose
+    go build -o goose.exe ./cmd/goose
+    .\goose.exe
+    ```
+
+=== "FreeBSD"
+
+    ```bash
+    # Install dependencies
+    pkg install go gh git
+
+    # Test GitHub authentication
+    gh auth login
+
+    # Build and run
+    git clone https://github.com/ready-to-review/goose.git
+    cd goose && make run
+    ```
+
+**Verify installation:** Menu bar/system tray icon appears. Create test PR, expect notification (typical: 15-30 seconds, max: 60 seconds).
 
 ## Problems?
 
-https://github.com/codeGROOVE-dev/support
+[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }

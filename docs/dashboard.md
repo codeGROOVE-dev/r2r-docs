@@ -6,7 +6,7 @@ Web interface showing all PRs across your repositories.
 
 ## Prerequisites
 
-- [GitHub App installed](getting-started.md#step-1-github-app) on your repositories (required for real-time PR updates)
+- [GitHub App installed](getting-started.md#step-1-install-github-app-required) on your repositories (required for real-time PR updates)
 
 ## Access
 
@@ -40,14 +40,17 @@ Data cached up to 28 days. No code access. Details: [Security](security.md)
 
 **Drafts**: Your draft PRs not ready for review
 
-### Status Colors
+### Status Tags
 
-- 🔴 Red: Action required from you (fix CI, address feedback, resolve conflicts)
-- 🟡 Yellow: Waiting on others (awaiting review)
-- 🟢 Green: Approved, ready to merge
-- ⚪ Gray: Draft or CI running
+Each PR shows tags indicating what's blocking it:
 
-Work red first, then yellow, then merge green.
+- **Needs changes**: Fix CI failures, address review feedback, or resolve merge conflicts
+- **Awaiting review**: Waiting for reviewers to approve
+- **Ready to merge**: All approvals received, ready to ship
+- **Draft**: Not ready for review yet
+- **CI running**: Automated checks in progress
+
+**Priority**: Focus on PRs where you're blocking progress (incoming PRs needing your review, or outgoing PRs needing your fixes).
 
 ### Search & Filter
 
@@ -67,4 +70,4 @@ Sort by: Updated, Created, Title, Repository
 
 **Slow**: Use repository filtering. Clear browser cache.
 
-More: https://github.com/codeGROOVE-dev/support
+[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button }

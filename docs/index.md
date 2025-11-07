@@ -2,45 +2,25 @@
 
 Automated PR tracking that eliminates coordination overhead. PRs merge in under an hour instead of 4.5 days.
 
-> **Note:** Ready-to-Review is developed by codeGROOVE. You'll see "codeGROOVE" in configuration files, support channels, and GitHub repositories.
+## Get Started
 
-## How It Works
+[Getting Started →](getting-started.md){ .md-button .md-button--primary }
 
-Every PR has exactly one responsible party at any moment:
+5 minutes to set up. Install the GitHub App, login to your dashboard, then optionally add Slack and desktop notifications.
 
-- **Author's turn** (Red): Fix CI, address feedback, resolve conflicts
-- **Reviewer's turn** (Yellow): Review or re-review needed
-- **Ready to merge** (Green): Approved, waiting for merge
-- **In progress** (Gray): Draft or CI running
+## What You Get
 
-State changes trigger notifications. Turn-based clarity replaces ambiguity. See color-coded states in the [Dashboard](dashboard.md#status-colors).
+- **Dashboard**: See all your PRs in one place organized by incoming/outgoing with clear status tags
+- **Smart notifications**: Get notified via Slack or desktop when action is needed
+- **Auto-assign reviewers**: Automatically assigns the right people based on code ownership
+- **Turn-based clarity**: Always know whose turn it is - author or reviewer
 
-Architecture: https://github.com/codeGROOVE-dev/architecture/blob/main/README.md
+## Learn More
 
-## Components
+- [Plans & Pricing](plans.md) - Free for open source, paid plans for private repos
+- [Security](security.md) - How we handle your data
+- [Troubleshooting](troubleshooting.md) - Common issues and solutions
 
-**[GitHub App](github-bot.md)** (required): Enables real-time notifications and assigns reviewers based on code ownership. Required for all other components to function. [Learn more →](github-bot.md)
+## Need Help?
 
-**[Dashboard](dashboard.md)**: View all PRs at `dash.ready-to-review.dev` (personal) or `<org>.ready-to-review.dev` (organizations). Login with GitHub. [Learn more →](dashboard.md)
-
-**[Slack](slack.md)**: Channel updates and DMs. Install from Slack app directory. [Learn more →](slack.md)
-
-**[Goose](goose.md)**: Desktop notifications (macOS, Linux, Windows, BSD). Build from source. [Learn more →](goose.md)
-
-Choose what you need. GitHub Bot + Dashboard is sufficient for most teams.
-
-## Installation
-
-[Getting Started](getting-started.md) - 5 minutes, three steps
-
-## Additional Resources
-
-- **[Plans](plans.md)** - Pricing and features for Free, Pro, and Enterprise tiers
-- **[Security](security.md)** - Security architecture, data handling, and compliance
-- **[Troubleshooting](troubleshooting.md)** - Common issues and solutions
-
-## Support
-
-Problems? [Open an issue](https://github.com/codeGROOVE-dev/support)
-
-Design partners wanted: [Schedule a call](https://calendar.app.google/TbQmeX8iWnvx6Ci89)
+[Get Support →](https://github.com/codeGROOVE-dev/support/issues/new?template=support-request.md){ .md-button } or [Schedule a Call](https://calendar.app.google/TbQmeX8iWnvx6Ci89){ .md-button }
