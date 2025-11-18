@@ -46,13 +46,13 @@ Counts only non-stale open PRs. PRs untouched for >90 days are considered stale 
 
 Example: Bob has 12 assigned PRs. 3 updated recently, 9 stale. Effective workload: 3 PRs. Bob eligible for assignment.
 
-## Installation & Configuration
+## Installation
 
-Install the GitHub App: https://github.com/apps/ready-to-review-beta
+--8<-- "docs/.snippets/github-app-install.md"
 
-Select repositories to monitor. The app will:
+The app will automatically:
 - Enable real-time notifications for all selected repos
-- Automatically assign reviewers on new PRs
+- Assign reviewers on new PRs
 - Track PR state changes
 
 To add/remove repos later: [GitHub Settings → Installed GitHub Apps](https://github.com/settings/installations) → Ready-to-Review → Configure → Repository access

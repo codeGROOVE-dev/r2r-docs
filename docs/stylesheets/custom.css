@@ -60,8 +60,8 @@
 /* Typography improvements */
 .md-typeset {
   color: var(--text-primary);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.855rem;
+  line-height: 1.6;
 }
 
 .md-typeset h1 {
@@ -78,7 +78,7 @@
   font-weight: 600;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--border-gray);
   padding-bottom: 0.4rem;
 }
 
@@ -91,7 +91,7 @@
 
 /* Navigation improvements */
 .md-nav {
-  font-size: 0.9rem;
+  font-size: 0.855rem;
 }
 
 .md-nav__link {
@@ -376,7 +376,7 @@ button,
 }
 
 .md-footer-copyright {
-  font-size: 0.8rem;
+  font-size: 0.7875rem;
 }
 
 /* Improved hierarchy visibility */
@@ -387,6 +387,15 @@ button,
 
 .md-nav__item--section > .md-nav__link {
   font-weight: 600;
+}
+
+/* Indent nested navigation items under sections */
+.md-nav__item--nested .md-nav__item {
+  padding-left: 0.75rem;
+}
+
+.md-nav__item--section .md-nav__item {
+  padding-left: 0.75rem;
 }
 
 /* Clean list styling */
@@ -511,4 +520,64 @@ textarea:focus {
 
 .md-typeset .tabbed-set > label:hover {
   color: var(--cyan-dark);
+}
+
+/* Choice cards for getting-started page */
+.choice-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 32px 0;
+  max-width: 800px;
+}
+
+.choice-card {
+  border: 2px solid var(--cyan);
+  border-radius: 12px;
+  padding: 32px 24px 24px;
+  background: linear-gradient(135deg, rgba(92, 225, 230, 0.03) 0%, rgba(92, 225, 230, 0.08) 100%);
+}
+
+.choice-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  padding-top: 0;
+  color: var(--text-primary);
+}
+
+.choice-card p:first-of-type {
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.choice-card-cta {
+  display: inline-block;
+  background: var(--cyan-dark);
+  color: var(--white) !important;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 24px;
+  min-height: 44px;
+  line-height: 20px;
+  transition: all 0.2s ease;
+  border-bottom: none !important;
+}
+
+.choice-card-cta:hover {
+  background: #0a5a6d;
+  color: var(--white) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.4);
+  border-bottom: none !important;
+}
+
+/* Responsive: ensure cards don't get too wide */
+@media (min-width: 1200px) {
+  .choice-cards {
+    max-width: 900px;
+  }
 }

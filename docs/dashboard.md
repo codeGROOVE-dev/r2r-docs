@@ -2,21 +2,21 @@
 
 Web interface showing all PRs across your repositories.
 
-**Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [GitHub Bot](github-bot.md) | [Slack](slack.md) | [Goose](goose.md)
+## Installation
 
-## Prerequisites
+### Install GitHub App
 
-- [GitHub App installed](getting-started.md#step-1-install-github-app-required) on your repositories (required for real-time PR updates)
+--8<-- "docs/.snippets/github-app-install.md"
 
 ## Access
 
 **For personal accounts / individual users:**
-Navigate to [dash.ready-to-review.dev](https://dash.ready-to-review.dev)
+Navigate to [ready-to-review.dev](https://ready-to-review.dev)
 
 **For GitHub organizations:**
 Navigate to `<your-org>.ready-to-review.dev` (replace `<your-org>` with your GitHub organization name)
 
-Example: If your org is `acme-corp`, visit `acme-corp.ready-to-review.dev`
+Example: If your org is `kubernetes`, visit [kubernetes.ready-to-review.dev](https://kubernetes.ready-to-review.dev)
 
 Click **Login with GitHub**, authorize when prompted.
 

@@ -2,63 +2,9 @@
 
 Native desktop notifications for macOS, Linux, Windows, BSD. Honks when you're blocking someone's PR, jet sounds when your PR advances.
 
-**Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [GitHub Bot](github-bot.md) | [Dashboard](dashboard.md) | [Slack](slack.md)
-
-## Prerequisites
-
-- [GitHub App installed](getting-started.md#step-1-install-github-app-required) on your repositories (required for real-time PR notifications)
-- GitHub CLI (`gh`) installed
-- Go 1.23.4+ installed (for building from source)
-
 ## Installation
 
-Build from source (Homebrew package coming soon).
-
-### macOS
-
-```bash
-brew install gh go
-gh auth status || gh auth login
-git clone https://github.com/ready-to-review/goose.git
-cd goose && make run
-```
-
-Auto-start: Click menu bar icon → **Start at Login**
-
-### Linux
-
-```bash
-# Debian/Ubuntu
-sudo apt install golang-go gh
-
-# Fedora
-sudo dnf install golang gh
-
-gh auth login
-git clone https://github.com/ready-to-review/goose.git
-cd goose && make run
-```
-
-### Windows
-
-Install: [Go](https://go.dev/dl/), [GitHub CLI](https://cli.github.com/)
-
-```powershell
-gh auth login
-git clone https://github.com/ready-to-review/goose.git
-cd goose
-go build -o goose.exe ./cmd/goose
-.\goose.exe
-```
-
-### BSD
-
-```bash
-pkg install go gh git  # FreeBSD
-gh auth login
-git clone https://github.com/ready-to-review/goose.git
-cd goose && make run
-```
+--8<-- "docs/.snippets/desktop-integration-goose.md"
 
 ## Configuration
 

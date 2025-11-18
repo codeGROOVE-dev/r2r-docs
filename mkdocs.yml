@@ -32,7 +32,11 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
+  - Getting Started:
+    - Overview: getting-started.md
+    - Personal Setup: getting-started-personal.md
+    - Team Setup: getting-started-team.md
+  - Core Concepts: concepts.md
   - Components:
     - GitHub App: github-bot.md
     - Dashboard: dashboard.md

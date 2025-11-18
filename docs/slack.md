@@ -2,21 +2,11 @@
 
 Posts PR updates to channels and sends DMs when action needed.
 
-**Part of Ready-to-Review** - [Home](index.md) | [Getting Started](getting-started.md) | [GitHub Bot](github-bot.md) | [Dashboard](dashboard.md) | [Goose](goose.md)
-
-## Prerequisites
-
-- [GitHub App installed](getting-started.md#step-1-install-github-app-required) on your repositories (required for real-time PR notifications)
-- Slack workspace admin access (for installation)
-- GitHub and Slack accounts using the same email (for DM matching)
-
 ## Installation
 
-https://slack.com/oauth/v2/authorize?client_id=9426269265270.9443955134789&scope=channels:history,channels:read,chat:write,chat:write.public,commands,im:write,reactions:write,team:read,users:read,users:read.email,groups:read,groups:history&user_scope=
+--8<-- "docs/.snippets/slack-install.md"
 
-Click **Add to Slack**, select workspace, **Allow**.
-
-## Configuration
+## Advanced Configuration
 
 ### Auto-Discovery
 

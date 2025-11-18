@@ -1,112 +1,67 @@
 # Getting Started
 
-Get up and running in 5 minutes. Install the GitHub App, login to your dashboard, then optionally add Slack and desktop notifications.
+Welcome! Ready-to-Review eliminates PR coordination overhead through intelligent reviewer assignment and smart notifications.
 
-## Prerequisites
+---
 
-- GitHub organization admin access (or personal account)
-- (Optional) Slack workspace admin access
+## Choose Your Path
 
-## Step 1: Install GitHub App (Required)
+<div class="choice-cards" markdown>
 
-The GitHub App is required for real-time notifications and automated review assignments.
+<div class="choice-card" markdown="1">
 
-[Add to GitHub →](https://github.com/apps/ready-to-review-beta){ .md-button .md-button--primary }
+### <span aria-label="Personal">👤</span> Personal Use
 
-Choose **All repositories** or select specific repos, then click **Install**.
+**For solo developers and open source contributors**
 
-## Step 2: Login to Your Dashboard
+Set up desktop notifications to stay on top of PRs.
 
-[Open Dashboard →](https://ready-to-review.dev){ .md-button .md-button--primary }
+**What you'll configure:**
 
-Click **Login with GitHub** and authorize. Your PRs will appear within 60 seconds.
+- GitHub App for PR tracking
+- Desktop notifications (Goose)
 
-!!! tip "Organization-Specific Workspaces"
-    The main dashboard shows your Personal workspace by default. For team-specific views, you can access organization workspaces at `<org>.ready-to-review.dev` (e.g., `acme-corp.ready-to-review.dev`), or switch workspaces using the hamburger menu in the dashboard.
+**Time:** ~1 minute
 
-## Step 3: Slack Integration (Optional)
+<a href="../getting-started-personal/" class="choice-card-cta">Start Personal Setup →</a>
 
-[Add to Slack →](https://slack.com/oauth/v2/authorize?client_id=9426269265270.9443955134789&scope=channels:history,channels:read,chat:write,chat:write.public,commands,im:write,reactions:write,team:read,users:read,users:read.email,groups:read,groups:history&user_scope=){ .md-button .md-button--primary }
+</div>
 
-After clicking the button above, select your workspace and click **Allow**.
+<div class="choice-card" markdown="1">
 
-By default, repositories automatically map to same-named Slack channels (`api-server` repo → `#api-server` channel). Need custom channel mapping or notification settings? See [Slack Integration - Configuration](slack.md#configuration) for advanced options including wildcards, notification timing, and multi-channel routing.
+### <span aria-label="Team">👥</span> Team Use
 
-**Verify installation:**
-- In any Slack channel, type `/r2r report` to test the integration
-- Create a test PR and check for message in the corresponding channel (typical: 15-30 seconds, max: 60 seconds)
+**For teams evaluating or deploying Ready-to-Review**
 
-## Step 4: Desktop Notifications / Goose (Optional)
+Set up the full workflow with team notifications.
 
-Desktop notifications. Build from source (Homebrew package coming soon).
+**What you'll configure:**
 
-=== "macOS"
+- GitHub App for PR tracking
+- Web dashboard
+- Slack integration
+- Desktop notifications (optional)
 
-    ```bash
-    # Install dependencies
-    brew install gh go
+**Time:** ~15 minutes
 
-    # Test GitHub authentication
-    gh auth status || gh auth login
+<a href="../getting-started-team/" class="choice-card-cta">Start Team Setup →</a>
 
-    # Build and run
-    git clone https://github.com/ready-to-review/goose.git
-    cd goose && make run
-    ```
+</div>
 
-    Click menu bar icon → **Start at Login** for auto-start.
+</div>
 
-=== "Linux"
+## Security & Privacy
 
-    ```bash
-    # Debian/Ubuntu
-    sudo apt install golang-go gh
+Both setups are designed with security in mind:
 
-    # Fedora
-    sudo dnf install golang gh
+- **GitHub App:** Only accesses repositories you explicitly grant it access to
+- **Slack App:** Only sees channels you explicitly invite it to
+- **Desktop App:** Runs entirely on your machine using your credentials
 
-    # Arch Linux
-    sudo pacman -S go github-cli
+Start with 1-2 public repositories to evaluate risk-free before expanding to your full organization.
 
-    # Test GitHub authentication
-    gh auth login
+## Need Help?
 
-    # Build and run
-    git clone https://github.com/ready-to-review/goose.git
-    cd goose && make run
-    ```
-
-=== "Windows"
-
-    Install: [Go](https://go.dev/dl/), [GitHub CLI](https://cli.github.com/)
-
-    ```powershell
-    # Test GitHub authentication
-    gh auth login
-
-    # Build and run
-    git clone https://github.com/ready-to-review/goose.git
-    cd goose
-    go build -o goose.exe ./cmd/goose
-    .\goose.exe
-    ```
-
-=== "FreeBSD"
-
-    ```bash
-    # Install dependencies
-    pkg install go gh git
-
-    # Test GitHub authentication
-    gh auth login
-
-    # Build and run
-    git clone https://github.com/ready-to-review/goose.git
-    cd goose && make run
-    ```
-
-**Verify installation:** Menu bar/system tray icon appears. Create test PR, expect notification (typical: 15-30 seconds, max: 60 seconds).
-
-## Problems?
-
-[Get Support →](https://codegroove.dev/support){ .md-button }
+- **Documentation:** Browse the full docs using the navigation above
+- **Support:** [github.com/codeGROOVE-dev/support](https://github.com/codeGROOVE-dev/support)
+- **Security Questions:** [Security Documentation](security.md)
