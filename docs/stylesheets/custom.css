@@ -1,24 +1,53 @@
-/* Professional Technical Documentation Styling */
+/* Brutalist Technical Documentation - Matching Website Design */
 
 :root {
-  /* codeGROOVE brand colors from website */
+  /* Override Material theme default colors - use black for better contrast */
+  --md-primary-fg-color: #000000;
+  --md-primary-fg-color--light: #1c1917;
+  --md-primary-fg-color--dark: #000000;
+  --md-primary-bg-color: #ffe838;
+  --md-accent-fg-color: #000000;
+  --md-accent-fg-color--transparent: rgba(0, 0, 0, 0.1);
+  --md-accent-bg-color: #ffe838;
+  --md-typeset-a-color: #000000;
+
+  /* codeGROOVE brand colors - matching website */
   --yellow: #ffe838;
-  --yellow-alt: #ffde59;
+  --yellow-dark: #eab308;
   --cyan: #5ce1e6;
   --cyan-dark: #0e7490;
+  --black: #000000;
+  --white: #ffffff;
+
+  /* Brutalist color palette */
+  --gray-50: #fafaf9;
+  --gray-100: #f5f5f4;
+  --gray-700: #44403c;
+  --gray-800: #292524;
+  --gray-900: #1c1917;
+  --green: #10b981;
 
   /* Action button green (as requested) */
   --action-green: #00796b;
   --action-green-hover: #00695c;
 
-  /* Clean neutral palette */
-  --white: #ffffff;
-  --off-white: #fafafa;
-  --light-gray: #f5f5f5;
+  /* Legacy color mappings for compatibility */
+  --off-white: #fafaf9;
+  --light-gray: #f5f5f4;
   --border-gray: #e0e0e0;
   --text-primary: #000000;
   --text-secondary: #666666;
   --code-bg: #f8f9fa;
+
+  /* Brutalist Shadows - matching website */
+  --shadow-brutal: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-lg: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-hover: 6px 6px 0px 0px var(--yellow);
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* Border radius - slightly smaller for docs */
+  --radius: 8px;
+  --radius-lg: 12px;
 }
 
 /* Make sidebar wider and always visible on desktop */
@@ -83,8 +112,8 @@
 }
 
 .md-typeset h3 {
-  color: var(--cyan-dark);
-  font-weight: 600;
+  color: var(--black);
+  font-weight: 700;
   margin-top: 2rem;
   margin-bottom: 0.8rem;
 }
@@ -103,15 +132,15 @@
 }
 
 .md-nav__link:hover {
-  color: var(--cyan-dark);
-  background-color: rgba(92, 225, 230, 0.08);
+  color: var(--black);
+  background-color: rgba(255, 232, 56, 0.2);
 }
 
 .md-nav__link--active {
-  color: var(--cyan-dark);
-  font-weight: 600;
-  background-color: rgba(92, 225, 230, 0.12);
-  border-left: 3px solid var(--cyan);
+  color: var(--black);
+  font-weight: 700;
+  background-color: var(--yellow);
+  border-left: 4px solid var(--black);
 }
 
 /* Sidebar navigation */
@@ -139,69 +168,83 @@
 }
 
 .md-nav--secondary .md-nav__link--active {
-  color: var(--cyan-dark);
-  border-left: 2px solid var(--cyan);
+  color: var(--black);
+  font-weight: 700;
+  border-left: 3px solid var(--black);
+  background-color: rgba(255, 232, 56, 0.3);
 }
 
-/* Button styling - Apple HIG compliant (min 44px touch target) */
-.md-button {
-  background-color: var(--cyan-dark);
-  color: var(--white);
-  border: none;
-  border-radius: 6px;
+/* Button styling - Brutalist design with Apple HIG compliance (min 44px touch target) */
+.md-button,
+.md-button.md-button--primary,
+a.md-button,
+a.md-button.md-button--primary {
+  background-color: var(--yellow) !important;
+  color: var(--black) !important;
+  border: 3px solid var(--black) !important;
+  border-radius: var(--radius);
   padding: 0.75rem 1.75rem;
   min-height: 44px;
-  font-weight: 600;
+  font-weight: 700;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(14, 116, 144, 0.3);
+  box-shadow: var(--shadow-brutal);
 }
 
-.md-button:hover {
-  background-color: #0a5a6d;
-  color: var(--white);
-  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.5);
-  transform: translateY(-2px);
+.md-button:hover,
+.md-button.md-button--primary:hover,
+a.md-button:hover,
+a.md-button.md-button--primary:hover {
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+  box-shadow: var(--shadow-brutal-hover);
+  transform: translate(-2px, -2px);
 }
 
-/* Action buttons stay green as requested */
+/* Action buttons - with brutalist style */
 .md-button--primary {
-  background-color: var(--action-green);
-  color: var(--white);
-  box-shadow: 0 2px 8px rgba(0, 121, 107, 0.3);
+  background-color: var(--yellow) !important;
+  color: var(--black) !important;
+  border: 3px solid var(--black);
+  box-shadow: var(--shadow-brutal);
 }
 
 .md-button--primary:hover {
-  background-color: var(--action-green-hover);
-  color: var(--white);
-  box-shadow: 0 4px 12px rgba(0, 121, 107, 0.5);
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+  box-shadow: var(--shadow-brutal-hover);
+  transform: translate(-2px, -2px);
 }
 
 /* Link styling - obvious and professional */
 .md-typeset a {
-  color: var(--cyan-dark);
+  color: var(--black);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid var(--yellow);
   transition: all 0.2s ease;
+  font-weight: 600;
 }
 
 .md-typeset a:hover {
-  color: var(--cyan);
-  border-bottom-color: var(--cyan);
+  color: var(--black);
+  background-color: var(--yellow);
+  border-bottom-color: var(--black);
 }
 
-/* Apple HIG: Focus indicators - accessible and visible */
+/* Apple HIG: Focus indicators - accessible and visible, brutalist style */
 a:focus-visible,
 button:focus-visible,
 .md-button:focus-visible {
-  outline: 3px solid var(--cyan);
+  outline: 3px solid var(--black);
   outline-offset: 2px;
   border-radius: 4px;
+  box-shadow: 0 0 0 6px var(--yellow);
 }
 
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid var(--cyan);
+  outline: 3px solid var(--black);
   outline-offset: 0;
+  box-shadow: 0 0 0 4px var(--yellow);
 }
 
 /* Ensure minimum touch target size (Apple HIG: 44x44px) */
@@ -214,111 +257,132 @@ button,
   align-items: center;
 }
 
-/* Code blocks - clean and professional */
+/* Code blocks - brutalist style */
 .md-typeset code {
-  background-color: var(--code-bg);
-  color: var(--text-primary);
+  background-color: var(--yellow);
+  color: var(--black);
   padding: 0.15rem 0.4rem;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 0.85em;
-  border: 1px solid var(--border-gray);
+  border: 2px solid var(--black);
+  font-weight: 600;
 }
 
 .md-typeset pre {
-  background-color: var(--code-bg);
-  border: 1px solid var(--border-gray);
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: var(--gray-50);
+  border: 3px solid var(--black);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-brutal);
 }
 
 .md-typeset pre code {
   background-color: transparent;
   border: none;
   padding: 0;
+  color: var(--black);
+  font-weight: 400;
 }
 
-/* Admonitions - professional styling */
+/* Admonitions - brutalist styling */
 .md-typeset .admonition {
-  border-left: 4px solid var(--cyan);
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 3px solid var(--black);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-brutal);
   background-color: var(--white);
 }
 
 .md-typeset .admonition-title {
-  background-color: rgba(92, 225, 230, 0.12);
-  font-weight: 600;
+  background-color: var(--yellow);
+  color: var(--black);
+  font-weight: 700;
+  border-bottom: 3px solid var(--black);
 }
 
 .md-typeset .note {
-  border-left-color: var(--cyan);
+  background-color: var(--gray-50);
+}
+
+.md-typeset .note .admonition-title {
+  background-color: var(--white);
+  border: 2px solid var(--black);
 }
 
 .md-typeset .warning {
-  border-left-color: var(--yellow);
+  background-color: rgba(255, 232, 56, 0.1);
 }
 
 .md-typeset .warning .admonition-title {
-  background-color: rgba(255, 232, 56, 0.15);
+  background-color: var(--yellow);
 }
 
 .md-typeset .danger {
-  border-left-color: #d32f2f;
+  background-color: rgba(211, 47, 47, 0.05);
+}
+
+.md-typeset .danger .admonition-title {
+  background-color: #ff6b6b;
 }
 
 .md-typeset .tip {
-  border-left-color: var(--action-green);
+  background-color: rgba(16, 185, 129, 0.05);
 }
 
 .md-typeset .tip .admonition-title {
-  background-color: rgba(0, 121, 107, 0.08);
+  background-color: var(--green);
 }
 
-/* Tables - clean and professional */
+/* Tables - brutalist styling */
 .md-typeset table:not([class]) {
-  border: 1px solid var(--border-gray);
-  border-radius: 6px;
+  border: 3px solid var(--black);
+  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-brutal);
 }
 
 .md-typeset table:not([class]) th {
-  background-color: var(--cyan-dark);
-  color: var(--white);
-  font-weight: 600;
+  background-color: var(--yellow);
+  color: var(--black);
+  font-weight: 700;
   padding: 0.9rem 1rem;
+  border-bottom: 3px solid var(--black);
 }
 
 .md-typeset table:not([class]) td {
-  border-bottom: 1px solid var(--light-gray);
+  border-bottom: 2px solid var(--gray-100);
   padding: 0.8rem 1rem;
 }
 
 .md-typeset table:not([class]) tr:hover {
-  background-color: var(--off-white);
+  background-color: rgba(255, 232, 56, 0.1);
 }
 
-/* Header improvements */
+/* Header improvements - brutalist style */
 .md-header {
-  background-color: var(--white);
-  color: var(--text-primary);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid var(--border-gray);
+  background-color: var(--yellow);
+  color: var(--black);
+  box-shadow: none;
+  border-bottom: 4px solid var(--black);
 }
 
 .md-header__button {
-  color: var(--text-secondary);
+  color: var(--black);
 }
 
 .md-header__button:hover {
-  color: var(--cyan-dark);
+  color: var(--gray-700);
 }
 
 .md-header__title {
-  color: var(--text-primary);
+  color: var(--black);
   font-weight: 700;
   font-size: 1.1rem;
   letter-spacing: -0.01em;
+}
+
+/* Logo styling */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  filter: none;
 }
 
 /* External link styling for Support */
@@ -329,27 +393,27 @@ button,
   opacity: 0.6;
 }
 
-/* Search box */
+/* Search box - brutalist style */
 .md-search__input {
-  background-color: var(--light-gray);
-  border: 1px solid var(--border-gray);
-  border-radius: 6px;
-  color: var(--text-primary);
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  border-radius: var(--radius);
+  color: var(--black);
   transition: all 0.2s ease;
 }
 
 .md-search__input:focus {
-  border-color: var(--cyan);
+  border-color: var(--black);
   background-color: var(--white);
-  box-shadow: 0 0 0 3px rgba(92, 225, 230, 0.2);
+  box-shadow: var(--shadow-brutal);
 }
 
 .md-search__input::placeholder {
-  color: var(--text-secondary);
+  color: var(--gray-700);
 }
 
 .md-search__icon {
-  color: var(--text-secondary);
+  color: var(--black);
 }
 
 /* Breadcrumbs/navigation path */
@@ -358,7 +422,8 @@ button,
 }
 
 .md-path__link {
-  color: var(--cyan-dark);
+  color: var(--black);
+  font-weight: 600;
 }
 
 /* Footer */
@@ -409,29 +474,37 @@ button,
   margin-bottom: 0.5rem;
 }
 
-/* Cards and content blocks */
+/* Cards and content blocks - brutalist style */
 .md-typeset blockquote {
-  border-left: 4px solid var(--cyan);
-  background-color: var(--off-white);
+  border: 3px solid var(--black);
+  border-left: 6px solid var(--yellow);
+  background-color: rgba(255, 232, 56, 0.05);
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
-  border-radius: 4px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-brutal);
 }
 
-/* Horizontal rules */
+/* Horizontal rules - brutalist style */
 .md-typeset hr {
-  border-bottom: 1px solid var(--border-gray);
+  border: none;
+  border-bottom: 3px solid var(--black);
   margin: 2rem 0;
 }
 
-/* Back to top button */
+/* Back to top button - brutalist style */
 .md-top {
-  background-color: var(--cyan);
+  background-color: var(--yellow);
+  color: var(--black);
+  border: 3px solid var(--black);
+  box-shadow: var(--shadow-brutal);
 }
 
 .md-top:hover {
-  background-color: var(--cyan-dark);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-brutal-hover);
 }
 
 /* Ensure content is readable with proper spacing */
@@ -445,11 +518,14 @@ button,
 
 /* Code copy button */
 .md-clipboard {
-  color: var(--text-secondary);
+  color: var(--black);
+  opacity: 0.6;
 }
 
 .md-clipboard:hover {
-  color: var(--cyan-dark);
+  color: var(--black);
+  opacity: 1;
+  background-color: var(--yellow);
 }
 
 /* Ensure consistent spacing */
@@ -507,22 +583,26 @@ textarea {
 input[type="text"]:focus,
 input[type="search"]:focus,
 textarea:focus {
-  border-color: var(--cyan);
-  outline: 3px solid rgba(92, 225, 230, 0.3);
+  border-color: var(--black);
+  outline: 3px solid var(--black);
   outline-offset: 0;
+  box-shadow: 0 0 0 4px var(--yellow);
 }
 
-/* Tab styling for code blocks */
+/* Tab styling for code blocks - brutalist style */
 .md-typeset .tabbed-set > input:checked + label {
-  border-color: var(--cyan);
-  color: var(--cyan-dark);
+  border-color: var(--black);
+  color: var(--black);
+  background-color: var(--yellow);
+  font-weight: 700;
 }
 
 .md-typeset .tabbed-set > label:hover {
-  color: var(--cyan-dark);
+  color: var(--black);
+  background-color: rgba(255, 232, 56, 0.2);
 }
 
-/* Choice cards for getting-started page */
+/* Choice cards for getting-started page - brutalist style */
 .choice-cards {
   display: flex;
   flex-direction: column;
@@ -532,47 +612,58 @@ textarea:focus {
 }
 
 .choice-card {
-  border: 2px solid var(--cyan);
-  border-radius: 12px;
+  border: 3px solid var(--black);
+  border-radius: var(--radius-lg);
   padding: 32px 24px 24px;
-  background: linear-gradient(135deg, rgba(92, 225, 230, 0.03) 0%, rgba(92, 225, 230, 0.08) 100%);
+  background: var(--white);
+  box-shadow: var(--shadow-brutal-lg);
+  transition: all 0.2s ease;
+}
+
+.choice-card:hover {
+  background: rgba(255, 232, 56, 0.1);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px var(--yellow);
 }
 
 .choice-card h3 {
   margin-top: 0;
   margin-bottom: 0.75rem;
   padding-top: 0;
-  color: var(--text-primary);
+  color: var(--black);
+  font-weight: 700;
 }
 
 .choice-card p:first-of-type {
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--gray-700);
   margin-top: 0.5rem;
 }
 
 .choice-card-cta {
   display: inline-block;
-  background: var(--cyan-dark);
-  color: var(--white) !important;
+  background: var(--yellow);
+  color: var(--black) !important;
   padding: 12px 24px;
-  border-radius: 6px;
+  border: 3px solid var(--black);
+  border-radius: var(--radius);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   margin-top: 24px;
   min-height: 44px;
   line-height: 20px;
   transition: all 0.2s ease;
-  border-bottom: none !important;
+  border-bottom: 3px solid var(--black) !important;
+  box-shadow: var(--shadow-brutal);
 }
 
 .choice-card-cta:hover {
-  background: #0a5a6d;
-  color: var(--white) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.4);
-  border-bottom: none !important;
+  background: var(--white);
+  color: var(--black) !important;
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-brutal-hover);
+  border-bottom: 3px solid var(--black) !important;
 }
 
 /* Responsive: ensure cards don't get too wide */
@@ -580,4 +671,32 @@ textarea:focus {
   .choice-cards {
     max-width: 900px;
   }
+}
+
+/* Additional accessibility fixes - ensure proper contrast everywhere */
+.md-typeset .md-button,
+.md-typeset a.md-button {
+  color: var(--black) !important;
+}
+
+/* Fix any Material theme elements with poor contrast */
+[data-md-color-primary="yellow"] {
+  --md-primary-fg-color: #000000;
+  --md-primary-bg-color: #ffe838;
+}
+
+[data-md-color-accent="yellow"] {
+  --md-accent-fg-color: #000000;
+  --md-accent-bg-color: #ffe838;
+}
+
+/* Ensure all interactive elements have proper contrast */
+.md-tabs__link,
+.md-nav__link {
+  color: var(--text-secondary) !important;
+}
+
+.md-tabs__link--active,
+.md-nav__link--active {
+  color: var(--black) !important;
 }

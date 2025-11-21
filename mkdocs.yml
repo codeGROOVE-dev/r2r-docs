@@ -7,8 +7,8 @@ theme:
   name: material
   palette:
     scheme: default
-    primary: cyan
-    accent: cyan
+    primary: yellow
+    accent: yellow
   features:
     - navigation.instant
     - navigation.tracking

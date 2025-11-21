@@ -1,7 +1,7 @@
 .PHONY: run build deploy deploy-cloudflare clean install
 
 PORT ?= 8000
-VENV := .venv
+VENV := venv
 PYTHON := $(VENV)/bin/python3
 MKDOCS := $(VENV)/bin/mkdocs
 
